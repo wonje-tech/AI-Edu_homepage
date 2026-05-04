@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>인공지능융합교육전공 — 한국외대 교육대학원</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0f2044;
+  --navy-mid: #1a3560;
+  --navy-light: #243f72;
+  --gold: #c9a44a;
+  --gold-light: #e8c97a;
+  --cream: #faf8f3;
+  --cream2: #f3f0e8;
+  --white: #ffffff;
+  --gray100: #f5f4f0;
+  --gray200: #e8e6e0;
+  --gray400: #b0ab9e;
+  --gray600: #6b6660;
+  --gray800: #2e2b26;
+  --text: #1c1a16;
+  --text-light: #6b6660;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── TOP NAV ── */
+.topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(15,32,68,0.97);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 60px;
+  border-bottom: 1px solid rgba(201,164,74,0.25);
+}
+.topnav-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.topnav-brand .univ {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--gold-light);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.topnav-brand .dept {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.2px;
+}
+.topnav-tabs {
+  display: flex;
+  gap: 2px;
+}
+.topnav-tabs button {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.65);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: -0.2px;
+}
+.topnav-tabs button:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.topnav-tabs button.active { color: var(--gold-light); background: rgba(201,164,74,0.12); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 60px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 59px,
+      rgba(201,164,74,0.04) 60px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 59px,
+      rgba(201,164,74,0.04) 60px
+    );
+}
+.hero-bg-glow {
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(201,164,74,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+.hero-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+  position: relative;
+  max-width: 780px;
+}
+.hero-title em {
+  font-style: normal;
+  color: var(--gold-light);
+}
+.hero-title2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+  margin-bottom: 36px;
+  position: relative;
+  max-width: 680px;
+}
+.hero-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  max-width: 600px;
+  line-height: 1.8;
+  position: relative;
+  margin-bottom: 48px;
+}
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  position: relative;
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  padding: 13px 28px;
+  border-radius: 6px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: -0.2px;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 13px 28px;
+  border-radius: 6px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-outline:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+.hero-stats {
+  position: absolute;
+  bottom: 48px;
+  right: 60px;
+  display: flex;
+  gap: 40px;
+}
+.stat {
+  text-align: right;
+}
+.stat-num {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.05em;
+}
+
+/* ── CONTENT SECTIONS ── */
+.section {
+  display: none;
+  animation: fadeUp 0.4s ease;
+}
+.section.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SECTION HEADER ── */
+.sec-header {
+  background: var(--navy);
+  padding: 80px 60px 60px;
+}
+.sec-header .eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.sec-header .eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+.sec-header h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+}
+.sec-header p {
+  color: rgba(255,255,255,0.55);
+  font-size: 14px;
+  margin-top: 10px;
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* ── CONTENT AREA ── */
+.content-area { padding: 60px; max-width: 1100px; margin: 0 auto; }
+
+/* ── CARDS ── */
+.card-grid { display: grid; gap: 20px; }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray200);
+  border-radius: 12px;
+  padding: 28px;
+  transition: box-shadow 0.2s;
+}
+.card:hover { box-shadow: 0 4px 20px rgba(15,32,68,0.08); }
+.card-icon {
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+  font-size: 18px;
+}
+.card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+  letter-spacing: -0.2px;
+}
+.card p, .card li {
+  font-size: 13px;
+  color: var(--gray600);
+  line-height: 1.75;
+}
+.card ul { padding-left: 16px; }
+
+/* ── SECTION BLOCK ── */
+.block { margin-bottom: 56px; }
+.block-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--navy);
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.block-title span {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ── VISION BOX ── */
+.vision-box {
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 36px 40px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.vision-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+}
+.vision-box h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+.vision-box p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.8;
+}
+
+/* ── GOAL LIST ── */
+.goal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.goal-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--white);
+  border: 1px solid var(--gray200);
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+.goal-num {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--gold-light);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.goal-item p { font-size: 13.5px; color: var(--gray800); line-height: 1.65; }
+
+/* ── STRATEGY ── */
+.strategy-list { display: flex; flex-direction: column; gap: 16px; }
+.strategy-item {
+  background: var(--white);
+  border: 1px solid var(--gray200);
+  border-radius: 10px;
+  padding: 22px 26px;
+  border-left: 4px solid var(--gold);
+}
+.strategy-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+  letter-spacing: -0.2px;
+}
+.strategy-item p { font-size: 13px; color: var(--gray600); line-height: 1.75; }
+.strategy-item .msg {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: var(--cream2);
+  border-radius: 5px;
+  font-size: 12.5px;
+  color: var(--navy-mid);
+  font-weight: 500;
+}
+
+/* ── TRACK ── */
+.track-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.track-card {
+  border-radius: 12px;
+  padding: 28px;
+  border: 1.5px solid;
+}
+.track-card.t1 {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+.track-card.t2 {
+  background: #fff1f2;
+  border-color: #fda4af;
+}
+.track-label {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+.track-card.t1 .track-label { background: #1e3a8a; color: #bfdbfe; }
+.track-card.t2 .track-label { background: #881337; color: #fecdd3; }
+.track-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.2px; }
+.track-card.t1 h3 { color: #1e3a8a; }
+.track-card.t2 h3 { color: #881337; }
+.track-card .sub { font-size: 12px; color: var(--gray600); margin-bottom: 14px; }
+.track-card ul { padding-left: 18px; }
+.track-card ul li { font-size: 13px; color: var(--gray800); line-height: 1.8; }
+.track-card .output-box {
+  margin-top: 14px;
+  padding: 12px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--gray600);
+  line-height: 1.75;
+}
+.track-card .output-box strong { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; color: var(--gray800); }
+
+/* ── PROFESSOR ── */
+.prof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.prof-card {
+  background: var(--white);
+  border: 1px solid var(--gray200);
+  border-radius: 10px;
+  padding: 22px;
+  text-align: center;
+}
+.prof-avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--navy);
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 20px;
+  color: var(--gold-light);
+  font-weight: 700;
+}
+.prof-card h4 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+.prof-card .affil { font-size: 11px; color: var(--gold); font-weight: 500; letter-spacing: 0.05em; margin-bottom: 8px; }
+.prof-card .role { font-size: 12px; color: var(--gray600); line-height: 1.65; }
+.prof-type-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray400);
+  margin: 28px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--gray200);
+}
+
+/* ── CURRICULUM TABLE ── */
+.cur-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 20px;
+}
+.cur-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--gray600);
+}
+.cur-chip {
+  width: 24px; height: 12px;
+  border-radius: 3px;
+  border: 1.5px solid;
+  flex-shrink: 0;
+}
+
+.cur-grid {
+  display: grid;
+  grid-template-columns: 52px 52px repeat(5, 1fr);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1.5px solid #d4d2ca;
+  background: #fff;
+  font-size: 12px;
+  overflow-x: auto;
+}
+.cur-divider {
+  grid-column: 1 / -1;
+  padding: 7px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  border-bottom: 1.5px solid #d4d2ca;
+}
+.cur-div-base     { background: #ede9fe; color: #5b21b6; }
+.cur-div-deep     { background: #fef3c7; color: #92400e; }
+.cur-div-capstone { background: #e5e7eb; color: #374151; }
+
+.cur-header {
+  background: #f3f2ef;
+  padding: 9px 6px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 1.5px solid #d4d2ca;
+  border-right: 1px solid #e0ded8;
+}
+.cur-header:last-child { border-right: none; }
+.cur-rl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 6px 2px;
+  border-right: 1px solid #e0ded8;
+  border-bottom: 1px solid #e0ded8;
+  text-align: center;
+  line-height: 1.3;
+  writing-mode: vertical-rl;
+}
+.cur-rl-sub { writing-mode: horizontal-tb; font-size: 9.5px; }
+.rl-req   { background: #ede9fe; color: #5b21b6; }
+.rl-sel   { background: #d1fae5; color: #065f46; }
+.rl-com   { background: #fef9c3; color: #713f12; }
+.rl-t1    { background: #dbeafe; color: #1e3a8a; }
+.rl-t2    { background: #ffe4e6; color: #9f1239; }
+.rl-cap   { background: #e5e7eb; color: #374151; }
+
+.cur-cell {
+  padding: 6px;
+  border-right: 1px solid #e0ded8;
+  border-bottom: 1px solid #e0ded8;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 72px;
+}
+.cur-cell:last-child { border-right: none; }
+.cur-cell.empty { background: #fafaf8; }
+
+.cc {
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 11px;
+  line-height: 1.35;
+  font-weight: 500;
+  border-width: 1.5px;
+  border-style: solid;
+}
+.cc-req { background:#f5f3ff; color:#4c1d95; border-color:#a78bfa; }
+.cc-sel { background:#ecfdf5; color:#064e3b; border-color:#34d399; }
+.cc-com { background:#fffbeb; color:#78350f; border-color:#fbbf24; }
+.cc-t1  { background:#eff6ff; color:#1e3a8a; border-color:#60a5fa; }
+.cc-t2  { background:#fff1f2; color:#881337; border-color:#fb7185; }
+.cc-cap { background:#f3f4f6; color:#1f2937; border-color:#9ca3af; }
+
+/* ── COURSE TABLE ── */
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+.course-table th {
+  background: var(--navy);
+  color: rgba(255,255,255,0.8);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 10px 14px;
+  text-align: left;
+  letter-spacing: 0.03em;
+}
+.course-table td {
+  padding: 11px 14px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--gray200);
+  vertical-align: top;
+  line-height: 1.6;
+}
+.course-table tr:nth-child(even) td { background: var(--gray100); }
+.course-table td:first-child { font-weight: 500; color: var(--navy); white-space: nowrap; }
+.course-table td:last-child { color: var(--gray600); }
+.tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 10px;
+  margin-bottom: 4px;
+}
+.tag-req  { background: #f5f3ff; color: #4c1d95; }
+.tag-sel  { background: #ecfdf5; color: #064e3b; }
+.tag-com  { background: #fffbeb; color: #78350f; }
+.tag-t1   { background: #eff6ff; color: #1e3a8a; }
+.tag-t2   { background: #fff1f2; color: #881337; }
+
+/* ── GRAD REQ ── */
+.grad-req-box {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 28px 32px;
+  margin-top: 28px;
+}
+.grad-req-box h4 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gold-light);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(201,164,74,0.3);
+}
+.req-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 13px;
+}
+.req-row:last-child { border-bottom: none; }
+.req-icon { color: var(--gold); font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+.req-text { color: rgba(255,255,255,0.75); line-height: 1.65; }
+.req-text strong { color: #fff; }
+
+/* ── CAREER ── */
+.career-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px; }
+.career-box {
+  background: var(--white);
+  border: 1px solid var(--gray200);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.career-box-header {
+  padding: 16px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+}
+.career-box-header.c1 { background: var(--navy); color: var(--gold-light); }
+.career-box-header.c2 { background: #1e3a8a; color: #bfdbfe; }
+.career-box ul {
+  padding: 14px 20px 14px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.career-box li { font-size: 13px; color: var(--gray800); line-height: 1.6; }
+
+.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+.portfolio-item {
+  background: var(--white);
+  border: 1px solid var(--gray200);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 12.5px;
+  color: var(--gray800);
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.portfolio-item::before {
+  content: '→';
+  color: var(--gold);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  padding: 32px;
+  font-size: 12px;
+  line-height: 1.8;
+  margin-top: 80px;
+}
+.footer strong { color: rgba(255,255,255,0.7); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .topnav { padding: 0 20px; }
+  .hero { padding: 100px 24px 60px; }
+  .hero-stats { position: static; margin-top: 48px; flex-direction: row; justify-content: flex-start; gap: 28px; }
+  .sec-header { padding: 60px 24px 40px; }
+  .content-area { padding: 40px 24px; }
+  .card-grid-2, .card-grid-3, .track-wrap, .career-grid, .prof-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <div class="topnav-brand">
+    <span class="univ">Hankuk University of Foreign Studies</span>
+    <span class="dept">교육대학원 · 인공지능융합교육전공</span>
+  </div>
+  <div class="topnav-tabs">
+    <button onclick="showTab('home')" class="active" id="btn-home">홈</button>
+    <button onclick="showTab('intro')" id="btn-intro">전공소개</button>
+    <button onclick="showTab('prof')" id="btn-prof">교수진</button>
+    <button onclick="showTab('curriculum')" id="btn-curriculum">교육과정</button>
+    <button onclick="showTab('career')" id="btn-career">졸업 후 진로</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     HOME
+══════════════════════════════════════════ -->
+<section class="section active" id="home">
+  <div class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-bg-glow"></div>
+
+    <div class="hero-eyebrow">Graduate School of Education · HUFS</div>
+    <div class="hero-title">
+      AI를 쓰는 교사를 넘어,<br>
+      <em>AI로 교육문제를 정의하고</em><br>
+      해결하는 전문가로
+    </div>
+    <div class="hero-title2">
+      학교현장과 에듀테크 산업을 모두 아우르는<br>
+      실천형 AI융합교육 전문가 양성
+    </div>
+    <div class="hero-desc">
+      교육대학원의 교육설계 역량과 AI융합대학의 기술 전문성이 만나는<br>
+      한국외대형 인공지능융합교육전공
+    </div>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="showTab('intro')">전공 소개 보기</button>
+      <button class="btn-outline" onclick="showTab('curriculum')">교육과정 확인</button>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">전문 트랙</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">교수진 유형</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-label">학기 과정</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">12</div>
+        <div class="stat-label">졸업 이수 과목</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 홈 - 핵심 키워드 -->
+  <div style="background: var(--cream2); padding: 60px;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <div style="font-size: 11px; letter-spacing: 0.16em; color: var(--gold); text-transform: uppercase; font-weight: 600; margin-bottom: 10px;">핵심 특징</div>
+        <div style="font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 600; color: var(--navy);">왜 한국외대 인공지능융합교육전공인가?</div>
+      </div>
+      <div class="card-grid card-grid-2" style="gap: 16px;">
+        <div class="card" style="border-left: 4px solid var(--gold);">
+          <div class="card-icon" style="background: #fef3c7; font-size:20px;">🤝</div>
+          <h3>교육대학원 × AI융합대학 공동운영</h3>
+          <p>교육설계 전문성과 AI·데이터 기술 전문성이 결합된 유일한 공동운영형 AI융합교육 전공</p>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--gold);">
+          <div class="card-icon" style="background: #ede9fe; font-size:20px;">🌐</div>
+          <h3>한국외대형 언어·글로벌·NLP 특화</h3>
+          <p>언어교육, 외국어교육, 다언어 교육의 강점을 자연어처리·생성형 AI와 연결하는 외대 고유 모델</p>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--gold);">
+          <div class="card-icon" style="background: #dbeafe; font-size:20px;">🤖</div>
+          <h3>대면 실습형 AI교육</h3>
+          <p>로봇 키트·센서·컴퓨터비전·3D 프로토타이핑 등 온라인으로 대체할 수 없는 실물 기반 실습</p>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--gold);">
+          <div class="card-icon" style="background: #d1fae5; font-size:20px;">📁</div>
+          <h3>포트폴리오 기반 졸업</h3>
+          <p>성적표가 아닌 학교현장·에듀테크 산업에서 즉시 활용 가능한 AI융합교육 포트폴리오 완성</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     전공 소개
+══════════════════════════════════════════ -->
+<section class="section" id="intro">
+  <div class="sec-header">
+    <div class="eyebrow">전공 소개</div>
+    <h2>AI와 교육현장을 연결하는<br>한국외대형 AI융합교육 전문가 양성</h2>
+    <p>학교현장과 에듀테크 산업 모두를 아우르는 실천형 AI교육 전문가를 양성합니다.</p>
+  </div>
+
+  <div class="content-area">
+
+    <!-- 전공 소개 본문 -->
+    <div class="block">
+      <div class="block-title"><span></span>전공 소개</div>
+      <p style="font-size:14px; color: var(--gray600); line-height: 1.9; margin-bottom: 16px;">
+        한국외국어대학교 교육대학원 인공지능융합교육전공은 AI와 데이터 기술을 교육현장에 실질적으로 연결할 수 있는 전문가를 양성하는 전공입니다. 교육대학원의 교육설계·교과교육 전문성과 AI융합대학의 AI·데이터 기술 전문성을 결합하여, 학교현장과 에듀테크 산업에서 요구되는 실천형 AI융합교육 역량을 기르는 데 목적이 있습니다.
+      </p>
+      <p style="font-size:14px; color: var(--gray600); line-height: 1.9;">
+        본 전공은 단순히 AI 도구 사용법을 배우는 과정이 아닙니다. 학생들은 AI와 데이터의 기본 원리를 이해하고, 이를 수업설계·평가·피드백·교육자료 개발·에듀테크 서비스 설계로 연결하는 방법을 학습합니다. 특히 한국외대의 강점인 언어교육·글로벌 교육 위에 자연어처리·생성형 AI·컴퓨터비전·교육데이터 분석을 접목하여 타 교육대학원과 차별화된 한국외대형 AI융합교육 모델을 지향합니다.
+      </p>
+    </div>
+
+    <!-- 전공 비전 -->
+    <div class="block">
+      <div class="block-title"><span></span>전공 비전</div>
+      <div class="vision-box" style="margin-bottom: 16px;">
+        <h3>비전 1</h3>
+        <p>언어·로봇·컴퓨터비전 등 실물 기반 실습을 통해 AI와 교육현장을 직접 연결하는 한국외대형 AI융합교육 전문가 양성</p>
+      </div>
+      <div class="vision-box">
+        <h3>비전 2</h3>
+        <p>학교현장과 에듀테크 산업 모두를 아우르는 실천형 AI교육 전문가 양성</p>
+      </div>
+    </div>
+
+    <!-- 전공 목표 -->
+    <div class="block">
+      <div class="block-title"><span></span>전공 목표</div>
+      <div class="goal-list">
+        <div class="goal-item"><div class="goal-num">1</div><p>AI와 데이터과학의 기초 원리를 이해하고 이를 교육문제 해결에 적용할 수 있는 역량 함양</p></div>
+        <div class="goal-item"><div class="goal-num">2</div><p>생성형 AI, 자연어처리, 컴퓨터비전, 추천시스템, 설명가능한 AI 등 핵심 AI 기술을 교육 맥락에 연결할 수 있는 교육 설계 역량 함양</p></div>
+        <div class="goal-item"><div class="goal-num">3</div><p>언어·외국어 교육 현장에서 자연어처리와 생성형 AI를 교육적으로 설계하고 적용할 수 있는 교육 응용 역량 함양</p></div>
+        <div class="goal-item"><div class="goal-num">4</div><p>로봇 키트, 컴퓨터비전, 피지컬 컴퓨팅 등 실물 기반 AI 실습을 교육활동으로 설계하고 운영할 수 있는 실천 역량 함양</p></div>
+        <div class="goal-item"><div class="goal-num">5</div><p>수업, 평가, 피드백, 상담, 교육자료 개발, 교육 콘텐츠 기획에 AI를 통합할 수 있는 역량 함양</p></div>
+        <div class="goal-item"><div class="goal-num">6</div><p>학교현장에서 AI교육을 설계·운영·확산할 수 있는 현직교사 전문성 강화</p></div>
+        <div class="goal-item"><div class="goal-num">7</div><p>에듀테크 기업, AI교육 서비스, 교육 콘텐츠 개발 분야로 진출 가능한 실무형 포트폴리오 구축</p></div>
+      </div>
+    </div>
+
+    <!-- 핵심 차별화 전략 -->
+    <div class="block">
+      <div class="block-title"><span></span>핵심 차별화 전략</div>
+      <div class="strategy-list">
+        <div class="strategy-item">
+          <h4>1. 교육대학원 × AI융합대학 공동운영</h4>
+          <p>교육대학원의 교육현장 전문성과 AI융합대학의 AI·데이터 기술 전문성을 결합. 단순 AI 도구 활용법이 아니라, 실제 AI 기술의 원리를 이해하고 교육문제 해결에 연결하는 깊이 있는 학습을 제공합니다.</p>
+          <div class="msg">AI를 교육적으로 활용하는 전공이면서, 실제 AI·데이터 전문성을 갖춘 교수진이 함께하는 전공</div>
+        </div>
+        <div class="strategy-item">
+          <h4>2. 한국외대형 언어·글로벌·NLP 특화</h4>
+          <p>언어교육, 외국어교육, 글로벌 교육이라는 외대 고유의 강점을 AI와 직접 연결. 자연어처리·텍스트마이닝·생성형 AI·다언어 교육·AI 기반 피드백을 전공의 핵심 특화 요소로 운영합니다.</p>
+          <div class="msg">언어교육과 AI를 가장 잘 연결할 수 있는, 외대만이 가능한 AI융합교육전공</div>
+        </div>
+        <div class="strategy-item">
+          <h4>3. 대학에 와서만 할 수 있는 대면 실습형 AI교육</h4>
+          <p>온라인 강좌나 일반 연수로 대체할 수 없는 실물 기반 실습을 교육과정의 핵심에 배치. 로봇 키트·센서·컴퓨터비전·마이크로컨트롤러·3D 프로토타이핑을 활용하여 AI를 직접 구현합니다.</p>
+          <div class="msg">온라인으로 듣는 AI교육이 아니라, 대학에 와서 직접 만들고 적용해보는 AI융합교육</div>
+        </div>
+        <div class="strategy-item">
+          <h4>4. AI 학위 보유 현직교사 겸임교수 참여</h4>
+          <p>AI 관련 석·박사 학위를 보유하거나 학교현장에서 AI교육을 실천해 온 현직교사를 겸임교수로 초빙. AI융합대학 교수진(기술)·교육대학원 교수진(설계·연구)·현직교사(현장 실천)의 3축 협력 구조로 운영합니다.</p>
+          <div class="msg">AI 기술, 교육설계, 학교현장 실천을 모두 연결하는 3축 교수진 구성</div>
+        </div>
+        <div class="strategy-item">
+          <h4>5. 문제정의 기반 프로젝트형 교육과정</h4>
+          <p>AI 활용법을 넘어, 교육현장의 문제를 발견·정의하고 AI·데이터로 해결하는 프로젝트 중심 교육과정 운영. 문제 발굴 → AI 설계 → 프로토타입 → 현장 적용·검증의 전 과정을 경험합니다.</p>
+          <div class="msg">AI를 쓰는 전공이 아니라, AI와 함께 교육문제를 정의하고 해결하는 전공</div>
+        </div>
+        <div class="strategy-item">
+          <h4>6. 포트폴리오 기반 졸업</h4>
+          <p>성적표만으로 끝나지 않고, 학교현장 또는 에듀테크 산업에서 즉시 활용 가능한 산출물을 졸업 요건으로 요구. 취업·이직·승진·연구 등 다양한 진로 상황에서 실질적으로 활용 가능한 결과물을 완성합니다.</p>
+          <div class="msg">졸업 시 성적표가 아닌, 현장에서 바로 쓸 수 있는 AI융합교육 포트폴리오를 손에 쥐는 전공</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 트랙 구조 -->
+    <div class="block">
+      <div class="block-title"><span></span>전공 트랙</div>
+      <div class="track-wrap">
+        <div class="track-card t1">
+          <div class="track-label">Track 1</div>
+          <h3>AI교육설계 트랙</h3>
+          <p class="sub">학교현장에서 AI수업·AI평가·AI피드백을 설계하고 실행하는 교사 리더 양성</p>
+          <strong style="font-size:12px; color:#1e3a8a; display:block; margin-bottom:6px;">주요 대상</strong>
+          <ul>
+            <li>현직 초·중·고등교사</li>
+            <li>예비교원</li>
+            <li>교육청 및 교육기관 종사자</li>
+            <li>학교현장 AI교육 리더를 목표로 하는 학생</li>
+          </ul>
+          <div class="output-box">
+            <strong>졸업 산출물</strong>
+            AI융합수업 포트폴리오 / AI 활용 평가·피드백 설계안 / 학교 단위 AI교육 프로그램 제안서 / 현장 적용 보고서
+          </div>
+        </div>
+        <div class="track-card t2">
+          <div class="track-label">Track 2</div>
+          <h3>AI에듀테크 트랙</h3>
+          <p class="sub">교육을 알고 AI를 이해하는 에듀테크 실무형 인재 양성</p>
+          <strong style="font-size:12px; color:#881337; display:block; margin-bottom:6px;">주요 대상</strong>
+          <ul>
+            <li>에듀테크 기업 진출 희망자</li>
+            <li>AI교육 콘텐츠 개발 희망자</li>
+            <li>교육서비스 기획 희망자</li>
+            <li>교육산업 진출을 고려하는 현직교사</li>
+          </ul>
+          <div class="output-box">
+            <strong>졸업 산출물</strong>
+            에듀테크 서비스 기획서 / AI교육 콘텐츠 프로토타입 / 학습자 데이터 분석 리포트 / AI 기반 개인화 학습 설계안
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 이런 분들께 추천 -->
+    <div class="block">
+      <div class="block-title"><span></span>이런 분들께 추천합니다</div>
+      <div class="card-grid card-grid-3">
+        <div class="card"><p>AI를 자신의 수업에 실제로 적용하고 싶은 현직교사</p></div>
+        <div class="card"><p>생성형 AI, AIDT, AI평가, AI피드백 역량을 체계적으로 기르고 싶은 교사</p></div>
+        <div class="card"><p>학교현장에서 AI교육을 주도하고 싶은 초등·중등 교사</p></div>
+        <div class="card"><p>AI와 교육을 연결해 에듀테크 기업 또는 AI교육 산업으로 진출하고 싶은 분</p></div>
+        <div class="card"><p>교육콘텐츠 개발, 교육서비스 기획, 교육데이터 분석에 관심 있는 분</p></div>
+        <div class="card"><p>언어교육·글로벌 교육과 AI의 결합에 관심 있는 분</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     교수진
+══════════════════════════════════════════ -->
+<section class="section" id="prof">
+  <div class="sec-header">
+    <div class="eyebrow">교수진</div>
+    <h2>AI 기술, 교육설계, 학교현장 실천을<br>모두 연결하는 3축 교수진</h2>
+    <p>AI융합대학·교육대학원·현직교사 겸임교수가 함께 설계하고 운영합니다.</p>
+  </div>
+
+  <div class="content-area">
+
+    <div class="block">
+      <div class="block-title"><span></span>교수진 구성 방향</div>
+      <div class="card-grid card-grid-3">
+        <div class="card" style="border-top: 3px solid var(--navy);">
+          <div class="card-icon" style="background:#e0e7ff;">💡</div>
+          <h3>AI융합대학 교수진</h3>
+          <p>AI·데이터·자연어처리·컴퓨터비전·추천시스템·설명가능한 AI 등 기술 전문성 제공</p>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--gold);">
+          <div class="card-icon" style="background:#fef9c3;">📚</div>
+          <h3>교육대학원 교수진</h3>
+          <p>수업설계, 교육공학, 교과교육, 연구방법, 현장 적용 전문성 제공</p>
+        </div>
+        <div class="card" style="border-top: 3px solid #10b981;">
+          <div class="card-icon" style="background:#d1fae5;">🏫</div>
+          <h3>현직교사 겸임교수</h3>
+          <p>학교현장 문제, AIDT 활용, 수업 사례, 교육청·학교 맥락의 실천 경험 제공</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-title"><span></span>참여 교수진 (예정)</div>
+
+      <div class="prof-type-label">교육대학원 교수진</div>
+      <div class="prof-grid">
+        <div class="prof-card">
+          <div class="prof-avatar">이</div>
+          <h4>이준규 교수</h4>
+          <div class="affil">교육대학원</div>
+          <div class="role">전공 운영, 언어교육 AI, NLP 교육응용, 현장 적용</div>
+        </div>
+        <div class="prof-card">
+          <div class="prof-avatar">이</div>
+          <h4>이준 교수</h4>
+          <div class="affil">교육대학원</div>
+          <div class="role">교육공학, 수업설계, 교육혁신, 미래교육</div>
+        </div>
+      </div>
+
+      <div class="prof-type-label">AI융합대학 교수진</div>
+      <div class="prof-grid">
+        <div class="prof-card">
+          <div class="prof-avatar">장</div>
+          <h4>장원제 교수</h4>
+          <div class="affil">AI데이터융합학부</div>
+          <div class="role">컴퓨터비전, 로보틱스, 피지컬 AI / 메이커 실습</div>
+        </div>
+        <div class="prof-card">
+          <div class="prof-avatar">최</div>
+          <h4>최재걸 교수</h4>
+          <div class="affil">AI데이터융합학부</div>
+          <div class="role">자연언어처리, 거대언어모델, 설명가능한 AI</div>
+        </div>
+        <div class="prof-card" style="opacity:0.7; border-style: dashed;">
+          <div class="prof-avatar" style="background: var(--gray400);">+</div>
+          <h4>추가 1인 예정</h4>
+          <div class="affil">AI데이터융합학부</div>
+          <div class="role">데이터마이닝, 추천시스템, AI응용 분야</div>
+        </div>
+      </div>
+
+      <div class="prof-type-label">현직교사 겸임교수</div>
+      <div class="prof-grid">
+        <div class="prof-card" style="border-style: dashed; opacity:0.7;">
+          <div class="prof-avatar" style="background: #065f46; font-size:16px;">🏫</div>
+          <h4>AI 관련 학위 보유<br>현직교사</h4>
+          <div class="affil" style="color: #065f46;">겸임교수 (섭외 예정)</div>
+          <div class="role">학교현장 AI교육 실천 사례, AIDT 활용 수업, 교육청·학교 맥락</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     교육과정
+══════════════════════════════════════════ -->
+<section class="section" id="curriculum">
+  <div class="sec-header">
+    <div class="eyebrow">교육과정</div>
+    <h2>기본 + 심화 + 캡스톤 디자인<br>5학기 실천형 교육과정</h2>
+    <p>총 12과목 이수 · 트랙별 맞춤 심화과목 · 포트폴리오 기반 졸업</p>
+  </div>
+
+  <div class="content-area">
+
+    <!-- 이수체계도 -->
+    <div class="block">
+      <div class="block-title"><span></span>이수체계도</div>
+
+      <div class="cur-legend">
+        <div class="cur-legend-item"><div class="cur-chip" style="background:#f5f3ff;border-color:#a78bfa;"></div>기본(필수)</div>
+        <div class="cur-legend-item"><div class="cur-chip" style="background:#ecfdf5;border-color:#34d399;"></div>기본(선택)</div>
+        <div class="cur-legend-item"><div class="cur-chip" style="background:#fffbeb;border-color:#fbbf24;"></div>심화 — 공통</div>
+        <div class="cur-legend-item"><div class="cur-chip" style="background:#eff6ff;border-color:#60a5fa;"></div>심화 — AI교육설계 트랙</div>
+        <div class="cur-legend-item"><div class="cur-chip" style="background:#fff1f2;border-color:#fb7185;"></div>심화 — AI에듀테크 트랙</div>
+        <div class="cur-legend-item"><div class="cur-chip" style="background:#f3f4f6;border-color:#9ca3af;"></div>캡스톤(필수)</div>
+      </div>
+
+      <div style="overflow-x: auto;">
+      <div class="cur-grid" style="min-width: 720px;">
+
+        <!-- 기본과목 divider -->
+        <div class="cur-divider cur-div-base">기본과목</div>
+
+        <!-- Header -->
+        <div class="cur-header" style="grid-column:1/3;">구분</div>
+        <div class="cur-header">1학기</div>
+        <div class="cur-header">2학기</div>
+        <div class="cur-header">3학기</div>
+        <div class="cur-header">4학기</div>
+        <div class="cur-header">5학기</div>
+
+        <!-- 기본 필수 -->
+        <div class="cur-rl rl-req">기본<br>필수</div>
+        <div class="cur-rl rl-req cur-rl-sub">전 트랙<br>공통</div>
+        <div class="cur-cell">
+          <div class="cc cc-req">AI융합교육의 이해</div>
+          <div class="cc cc-req">AI시대 문제정의와 교육혁신</div>
+        </div>
+        <div class="cur-cell">
+          <div class="cc cc-req">교육을 위한 데이터 리터러시</div>
+        </div>
+        <div class="cur-cell">
+          <div class="cc cc-req">AI 협업과 교육설계</div>
+        </div>
+        <div class="cur-cell empty"></div>
+        <div class="cur-cell empty"></div>
+
+        <!-- 기본 선택 -->
+        <div class="cur-rl rl-sel">기본<br>선택</div>
+        <div class="cur-rl rl-sel cur-rl-sub">전 트랙<br>공통</div>
+        <div class="cur-cell">
+          <div class="cc cc-sel">인공지능 개론</div>
+        </div>
+        <div class="cur-cell">
+          <div class="cc cc-sel">생성형 AI와 수업설계</div>
+        </div>
+        <div class="cur-cell">
+          <div class="cc cc-sel">AI 윤리와 철학</div>
+        </div>
+        <div class="cur-cell empty"></div>
+        <div class="cur-cell empty"></div>
+
+        <!-- 심화과목 divider -->
+        <div class="cur-divider cur-div-deep">심화과목</div>
+
+        <!-- 심화 공통 -->
+        <div class="cur-rl rl-com">심화<br>공통</div>
+        <div class="cur-rl rl-com cur-rl-sub">전 트랙<br>선택</div>
+        <div class="cur-cell">
+          <div class="cc cc-com">인공지능 프로그래밍 실습</div>
+        </div>
+        <div class="cur-cell">
+          <div class="cc cc-com">머신러닝의 교육적 활용</div>
+        </div>
+        <div class="cur-cell">
+          <div class="cc cc-com">멀티모달 AI와 교육 데이터 설계</div>
+        </div>
+        <div class="cur-cell">
+          <div class="cc cc-com">AI교육 현장문제 해결 프로젝트</div>
+        </div>
+        <div class="cur-cell empty"></div>
+
+        <!-- AI교육설계 트랙 -->
+        <div class="cur-rl rl-t1" style="font-size:9.5px;">AI교육<br>설계</div>
+        <div class="cur-rl rl-t1 cur-rl-sub">트랙1<br>선택</div>
+        <div class="cur-cell">
+          <div class="cc cc-t1">지능형 교육시스템의 이해</div>
+        </div>
+        <div class="cur-cell">
+          <div class="cc cc-t1">AI 기반 교육 평가·피드백 설계</div>
+        </div>
+        <div class="cur-cell">
+          <div class="cc cc-t1">자연어처리와 언어교육</div>
+          <div class="cc cc-t1">피지컬 AI와 교육</div>
+        </div>
+        <div class="cur-cell">
+          <div class="cc cc-t1">학교현장 AI융합교육 실천 세미나</div>
+          <div class="cc cc-t1">교과별 AI융합교육 세미나</div>
+        </div>
+        <div class="cur-cell empty"></div>
+
+        <!-- AI에듀테크 트랙 -->
+        <div class="cur-rl rl-t2" style="font-size:9.5px;">AI에듀<br>테크</div>
+        <div class="cur-rl rl-t2 cur-rl-sub">트랙2<br>선택</div>
+        <div class="cur-cell">
+          <div class="cc cc-t2">교육용 AI 콘텐츠 개발</div>
+        </div>
+        <div class="cur-cell">
+          <div class="cc cc-t2">컴퓨터비전과 교육응용</div>
+        </div>
+        <div class="cur-cell">
+          <div class="cc cc-t2">자연어처리와 언어교육</div>
+          <div class="cc cc-t2">교육용 추천시스템과 개인화 학습</div>
+        </div>
+        <div class="cur-cell">
+          <div class="cc cc-t2">에듀테크 서비스 기획</div>
+        </div>
+        <div class="cur-cell empty"></div>
+
+        <!-- 졸업요건 divider -->
+        <div class="cur-divider cur-div-capstone">졸업요건</div>
+
+        <!-- 캡스톤 -->
+        <div class="cur-rl rl-cap">캡스톤</div>
+        <div class="cur-rl rl-cap cur-rl-sub">전 트랙<br>필수</div>
+        <div class="cur-cell empty"></div>
+        <div class="cur-cell empty"></div>
+        <div class="cur-cell empty"></div>
+        <div class="cur-cell empty"></div>
+        <div class="cur-cell"><div class="cc cc-cap">캡스톤 디자인 설계</div></div>
+
+      </div><!-- /cur-grid -->
+      </div>
+    </div>
+
+    <!-- 과목 목록 -->
+    <div class="block">
+      <div class="block-title"><span></span>기본과목 (필수)</div>
+      <table class="course-table">
+        <thead>
+          <tr><th style="width:240px;">과목명</th><th>주요 내용</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="tag tag-req">필수</span><br>AI융합교육의 이해</td><td>AI 시대 교육 변화, AIDT, AI교육 정책, 교육현장 적용 사례</td></tr>
+          <tr><td><span class="tag tag-req">필수</span><br>AI시대 문제정의와 교육혁신</td><td>교육현장 문제 발굴·정의, 디자인씽킹, AI 프로젝트화</td></tr>
+          <tr><td><span class="tag tag-req">필수</span><br>교육을 위한 데이터 리터러시</td><td>교육데이터 수집·분석·시각화, 데이터 기반 의사결정</td></tr>
+          <tr><td><span class="tag tag-req">필수</span><br>AI 협업과 교육설계</td><td>교사-AI 협업, 학습자-AI 협업, AI 활용 학습활동 설계</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block">
+      <div class="block-title"><span></span>기본과목 (선택)</div>
+      <table class="course-table">
+        <thead>
+          <tr><th style="width:240px;">과목명</th><th>주요 내용</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="tag tag-sel">선택</span><br>인공지능 개론</td><td>인공지능의 기초 이론을 습득하고 인공지능 응용 사례 소개</td></tr>
+          <tr><td><span class="tag tag-sel">선택</span><br>생성형 AI와 수업설계</td><td>생성형 AI 기반 수업자료·과제·평가·피드백 설계</td></tr>
+          <tr><td><span class="tag tag-sel">선택</span><br>AI 윤리와 철학</td><td>XAI, 편향, 공정성, 개인정보 보호, 책임 있는 AI 활용</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block">
+      <div class="block-title"><span></span>심화과목</div>
+      <table class="course-table">
+        <thead>
+          <tr><th style="width:240px;">과목명</th><th>주요 내용</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="tag tag-com">공통</span><br>인공지능 프로그래밍 실습</td><td>인공지능 실습을 위한 프로그래밍 언어 이론 습득 및 프로그램 설계·구현</td></tr>
+          <tr><td><span class="tag tag-com">공통</span><br>머신러닝의 교육적 활용</td><td>머신러닝 기초 개념과 모델 이해, 교육 문제 적용 및 활용 방안 탐색</td></tr>
+          <tr><td><span class="tag tag-com">공통</span><br>멀티모달 AI와 교육 데이터 설계</td><td>복합 데이터를 다루는 멀티모달 AI의 원리를 이해하고 교육 콘텐츠 설계에 적용</td></tr>
+          <tr><td><span class="tag tag-com">공통</span><br>AI교육 현장문제 해결 프로젝트</td><td>문제정의 → AI 설계 → 프로토타입 제작 → 현장 적용·검증 전 과정 수행</td></tr>
+          <tr><td><span class="tag tag-t1">AI교육설계</span><br>지능형 교육시스템의 이해</td><td>맞춤형 교육을 위한 지능형 교육시스템 개념·모델·사례, 교육 콘텐츠 활용</td></tr>
+          <tr><td><span class="tag tag-t1">AI교육설계</span><br>AI 기반 교육 평가·피드백 설계</td><td>AI 활용 평가 설계, 과정중심평가, 루브릭 개발, 자동 피드백 구현</td></tr>
+          <tr><td><span class="tag tag-t1">AI교육설계</span><br>자연어처리와 언어교육</td><td>텍스트 분석, AI 기반 글쓰기·말하기 피드백, 다언어 교육 데이터 활용</td></tr>
+          <tr><td><span class="tag tag-t1">AI교육설계</span><br>피지컬 AI와 교육</td><td>아두이노·라즈베리파이·로봇 키트를 활용한 피지컬 AI 교육활동 설계</td></tr>
+          <tr><td><span class="tag tag-t1">AI교육설계</span><br>학교현장 AI융합교육 실천 세미나</td><td>현직교사 사례, AIDT 활용, 학교현장 문제, 현장 적용 전략</td></tr>
+          <tr><td><span class="tag tag-t1">AI교육설계</span><br>교과별 AI융합교육 세미나</td><td>영어·수학·상담·국어·중국어 등 교과별 AI 융합 수업 설계</td></tr>
+          <tr><td><span class="tag tag-t2">AI에듀테크</span><br>교육용 AI 콘텐츠 개발</td><td>AI 기반 디지털 교육 콘텐츠 기획·제작, 스마트 학습환경 설계</td></tr>
+          <tr><td><span class="tag tag-t2">AI에듀테크</span><br>컴퓨터비전과 교육응용</td><td>이미지·영상 인식 원리 이해, 학습활동 분석, 시각 자료 제작</td></tr>
+          <tr><td><span class="tag tag-t2">AI에듀테크</span><br>자연어처리와 언어교육</td><td>텍스트 분석, AI 기반 글쓰기·말하기 피드백, 다언어 교육 데이터 활용</td></tr>
+          <tr><td><span class="tag tag-t2">AI에듀테크</span><br>교육용 추천시스템과 개인화 학습</td><td>학습경로 추천 원리, 맞춤형 과제 설계, 데이터 기반 학습지원</td></tr>
+          <tr><td><span class="tag tag-t2">AI에듀테크</span><br>에듀테크 서비스 기획</td><td>교육서비스 기획 방법론, UX 설계, 학습자 경험 분석, 서비스 프로토타이핑</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 졸업 요건 -->
+    <div class="block">
+      <div class="block-title"><span></span>졸업 이수 요건</div>
+      <div class="grad-req-box">
+        <h4>총 12과목 이수로 졸업</h4>
+        <div class="req-row"><div class="req-icon">◆</div><div class="req-text"><strong>기본(필수) 4과목</strong> — 전 트랙 공통 이수 (AI융합교육의 이해, AI시대 문제정의와 교육혁신, 교육을 위한 데이터 리터러시, AI 협업과 교육설계)</div></div>
+        <div class="req-row"><div class="req-icon">◆</div><div class="req-text"><strong>기본(선택) 1과목 이상</strong> — 인공지능 개론, 생성형 AI와 수업설계, AI 윤리와 철학 중 선택</div></div>
+        <div class="req-row"><div class="req-icon">◆</div><div class="req-text"><strong>심화(공통 또는 트랙별) 선택 과목</strong> — 자신의 트랙에 맞는 심화과목 이수</div></div>
+        <div class="req-row"><div class="req-icon">◆</div><div class="req-text"><strong>현장 프로젝트 1회 이상 참여</strong> — AI교육 현장문제 해결 프로젝트 참여</div></div>
+        <div class="req-row"><div class="req-icon">◆</div><div class="req-text"><strong>캡스톤 디자인 설계 (5학기 필수)</strong> — 포트폴리오 작성을 위한 창의적 종합 설계 수행 및 심사 통과</div></div>
+        <div class="req-row"><div class="req-icon">◆</div><div class="req-text"><strong>졸업 산출물 2개 이상 완성</strong> — 트랙별 졸업 산출물 기준에 따라 포트폴리오 완성</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     졸업 후 진로
+══════════════════════════════════════════ -->
+<section class="section" id="career">
+  <div class="sec-header">
+    <div class="eyebrow">졸업 후 진로</div>
+    <h2>학교현장과 교육산업을 모두<br>아우르는 진로 확장성</h2>
+    <p>교육 전문가로서의 경력과 에듀테크 산업 진출 가능성을 함께 열어드립니다.</p>
+  </div>
+
+  <div class="content-area">
+
+    <div class="block">
+      <div class="block-title"><span></span>진로 영역</div>
+      <div class="career-grid">
+        <div class="career-box">
+          <div class="career-box-header c1">🏫 학교현장 및 공공교육 영역</div>
+          <ul>
+            <li>초·중등학교 AI교육 담당 교사</li>
+            <li>디지털 교육 리더 교사</li>
+            <li>AIDT 활용 수업·평가 전문가</li>
+            <li>교육청 및 교육지원청 AI교육 업무 담당자</li>
+            <li>교사 연수 및 AI 리터러시 교육 강사</li>
+            <li>학교 단위 AI교육 프로그램 기획자</li>
+          </ul>
+        </div>
+        <div class="career-box">
+          <div class="career-box-header c2">💼 에듀테크 및 AI교육 산업 영역</div>
+          <ul>
+            <li>에듀테크 기업 교육서비스 기획자</li>
+            <li>AI교육 콘텐츠 개발자</li>
+            <li>교육데이터 분석 및 학습지원 서비스 담당자</li>
+            <li>AI 기반 평가·피드백 서비스 기획자</li>
+            <li>언어교육 AI 서비스 기획자</li>
+            <li>개인화 학습 및 추천시스템 기반 교육서비스 기획자</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-title"><span></span>졸업 포트폴리오 예시</div>
+      <p style="font-size:13px; color: var(--gray600); margin-bottom: 16px; line-height: 1.8;">
+        본 전공의 학생들은 졸업 시 단순한 성적표가 아니라, 학교현장 또는 에듀테크 산업에서 활용 가능한 AI융합교육 포트폴리오를 갖추게 됩니다.
+      </p>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">AI융합수업 설계안</div>
+        <div class="portfolio-item">AI 평가·피드백 루브릭</div>
+        <div class="portfolio-item">교육데이터 분석 리포트</div>
+        <div class="portfolio-item">생성형 AI 기반 교육자료</div>
+        <div class="portfolio-item">로봇·센서 기반 AI교육 활동안</div>
+        <div class="portfolio-item">에듀테크 서비스 기획서</div>
+        <div class="portfolio-item">AI교육 콘텐츠 프로토타입</div>
+        <div class="portfolio-item">학교현장 적용 보고서</div>
+        <div class="portfolio-item">AI 기반 개인화 학습 설계안</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-title"><span></span>트랙별 졸업 산출물</div>
+      <div class="track-wrap">
+        <div class="track-card t1">
+          <div class="track-label">AI교육설계 트랙</div>
+          <h3>교사 리더형 포트폴리오</h3>
+          <ul style="margin-top: 10px;">
+            <li>AI융합수업 포트폴리오 (수업안 + 적용 결과)</li>
+            <li>AI 활용 평가·피드백 설계안</li>
+            <li>학교 단위 AI교육 프로그램 제안서</li>
+            <li>현장 적용 보고서 (문제정의 → 설계 → 실행 → 검증)</li>
+          </ul>
+        </div>
+        <div class="track-card t2">
+          <div class="track-label">AI에듀테크 트랙</div>
+          <h3>에듀테크 실무형 포트폴리오</h3>
+          <ul style="margin-top: 10px;">
+            <li>에듀테크 서비스 기획서 (시장 분석 + 서비스 설계 + UX)</li>
+            <li>AI교육 콘텐츠 프로토타입</li>
+            <li>학습자 데이터 분석 리포트</li>
+            <li>AI 기반 개인화 학습 설계안</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <strong>한국외국어대학교 교육대학원 인공지능융합교육전공</strong><br>
+  AI데이터융합학부의 기술 전문성, 교육대학원의 교육설계 역량,<br>
+  현직교사의 학교현장 경험을 결합하여<br>
+  학교현장의 AI교육 리더와 에듀테크·AI교육 산업의 실무형 인재를 양성합니다.<br><br>
+  Hankuk University of Foreign Studies · Graduate School of Education
+</footer>
+
+<script>
+function showTab(id) {
+  // hide all
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.topnav-tabs button').forEach(b => b.classList.remove('active'));
+  // show target
+  document.getElementById(id).classList.add('active');
+  document.getElementById('btn-' + id).classList.add('active');
+  // scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
